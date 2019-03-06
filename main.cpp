@@ -9,10 +9,10 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
     if (argc != 2) {
-		cout << "Invalid arguments." << endl;
-		return -1;
-	}
-	
+        cout << "Invalid arguments." << endl;
+        return -1;
+    }
+    
     ifstream file(argv[1]);
     if (!file) {
         cout << "File open error." << endl;
@@ -45,24 +45,24 @@ int main(int argc, char *argv[]) {
             break;
         case '[':
             if (mem[mem_ptr] == 0){
-				for (++code_ptr; loop_ctr > 0 || code[code_ptr] != ']'; ++code_ptr) {
-					if (code[code_ptr] == '[')
-						++loop_ctr;
-					if (code[code_ptr] == ']')
-						--loop_ctr;
-				}
-			}
+                for (++code_ptr; loop_ctr > 0 || code[code_ptr] != ']'; ++code_ptr) {
+                    if (code[code_ptr] == '[')
+                        ++loop_ctr;
+                    if (code[code_ptr] == ']')
+                        --loop_ctr;
+                }
+            }
             break;
         case ']':
             if (mem[mem_ptr] != 0){
-				for (--code_ptr; loop_ctr > 0 || code[code_ptr] != '['; --code_ptr) {
-					if (code[code_ptr] == ']')
-						++loop_ctr;
-					if (code[code_ptr] == '[')
-						--loop_ctr;
-				}
-				--code_ptr;
-			}
+                for (--code_ptr; loop_ctr > 0 || code[code_ptr] != '['; --code_ptr) {
+                    if (code[code_ptr] == ']')
+                        ++loop_ctr;
+                    if (code[code_ptr] == '[')
+                        --loop_ctr;
+                }
+                --code_ptr;
+            }
             break;
         default:
             break;
