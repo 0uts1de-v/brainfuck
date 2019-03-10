@@ -32,33 +32,33 @@ int main(int argc, char *argv[]) {
             --mem_ptr;
             break;
         case '+':
-            ++mem[mem_ptr];
+            ++mem.at(mem_ptr);
             break;
         case '-':
-            --mem[mem_ptr];
+            --mem.at(mem_ptr);
             break;
         case '.':
-            cout << mem[mem_ptr] << flush;
+            cout << mem.at(mem_ptr) << flush;
             break;
         case ',':
-            cin >> mem[mem_ptr];
+            cin >> mem.at(mem_ptr);
             break;
         case '[':
-            if (mem[mem_ptr] == 0){
-                for (++code_ptr; loop_ctr > 0 || code[code_ptr] != ']'; ++code_ptr) {
-                    if (code[code_ptr] == '[')
+            if (mem.at(mem_ptr) == 0){
+                for (++code_ptr; loop_ctr > 0 || code.at(code_ptr) != ']'; ++code_ptr) {
+                    if (code.at(code_ptr) == '[')
                         ++loop_ctr;
-                    if (code[code_ptr] == ']')
+                    if (code.at(code_ptr) == ']')
                         --loop_ctr;
                 }
             }
             break;
         case ']':
-            if (mem[mem_ptr] != 0){
-                for (--code_ptr; loop_ctr > 0 || code[code_ptr] != '['; --code_ptr) {
-                    if (code[code_ptr] == ']')
+            if (mem.at(mem_ptr) != 0){
+                for (--code_ptr; loop_ctr > 0 || code.at(code_ptr) != '['; --code_ptr) {
+                    if (code.at(code_ptr) == ']')
                         ++loop_ctr;
-                    if (code[code_ptr] == '[')
+                    if (code.at(code_ptr) == '[')
                         --loop_ctr;
                 }
                 --code_ptr;
