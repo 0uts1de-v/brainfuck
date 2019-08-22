@@ -1,2 +1,2 @@
 # brainfuck
-a brainfuck interpreter
+brainfuck interpreter
